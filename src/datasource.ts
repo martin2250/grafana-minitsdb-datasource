@@ -104,7 +104,7 @@ export class GenericDatasource {
 					let values = readFloat64(desc.NumPoints);
 
 					for (var j = 0; j < desc.NumPoints; j++) {
-						columns[series[desc.SeriesIndex].indices[i]].datapoints.push([values[j], Number(time[j])])
+						columns[series[desc.SeriesIndex].indices[i]].datapoints.push([values[j], 1000*Number(time[j])])
 					}
 				}
 			}
