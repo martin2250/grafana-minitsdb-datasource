@@ -1,5 +1,5 @@
 {
-    "name": "JSON",
+    "name": "miniTSDB",
     "id": "martin2250-minitsdb-datasource",
     "type": "datasource",
     "partials": {
@@ -19,15 +19,11 @@
         "links": [
             {
                 "name": "GitHub",
-                "url": "https://github.com/simPod/grafana-json-datasource"
-            },
-            {
-                "name": "MIT License",
-                "url": "https://github.com/simPod/grafana-json-datasource/blob/master/LICENSE"
+                "url": "https://github.com/martin2250/grafana-minitsdb-datasource"
             }
         ],
-        "version": "0.1.4",
-        "updated": "2018-03-29"
+        "version": "0.1.0",
+        "updated": "2019-09-07"
     },
     "dependencies": {
         "grafanaVersion": "6.x.x",

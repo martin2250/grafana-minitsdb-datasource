@@ -49,6 +49,7 @@ export class GenericDatasource {
 			method: 'POST',
 			responseType: 'arraybuffer'
 		}).then((response) => {
+			console.log(response)
 			let datau8 = new Uint8Array(response.data);
 			let indexLast = 0;
 
@@ -88,8 +89,25 @@ export class GenericDatasource {
 				s.indices = [] as number[];
 
 				for (var c of s['Columns']) {
+					let target = "";
+					if (query.targets[0].alias) {
+						target = query.targets[0].alias;
+
+						_.each(s['Tags'], (val, key) => {
+							target = target.replace('${series.' + key + '}', val);
+						});
+						_.each(c, (val, key) => {
+							target = target.replace('${column.' + key + '}', val);
+						});
+
+					} else {
+						target = JSON.stringify({
+							series: s['Tags'],
+							column: c
+						});
+					}
 					columns.push({
-						target: c.name,
+						target: target,
 						datapoints: [] as any[][]
 					});
 					s.indices.push(idx++);
